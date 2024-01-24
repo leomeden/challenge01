@@ -1,0 +1,54 @@
+*{
+    /*background: #F3F5FC;*/
+    box-sizing: border-box;
+}
+
+html, body, aside {
+    height: 100%;
+}
+
+
+body{
+    background: #F3F5FC;
+    
+}
+
+header{
+    width: 60%;
+    float: left;
+}
+
+
+img{
+    clear: both;
+    width: 120px;
+    height: 48px;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+
+main{
+    width: 60%;
+    float:left;
+    margin: 0px auto;
+    height: inherit; 
+}
+
+aside{
+    width: 35%;
+    margin: 0px auto;
+    float: left;
+       
+}
+
+aside textarea{
+    background: #FFFFFF;
+    border: none;
+    border-radius: 32px;
+    width: 80%;
+    padding: 30px;
+    margin: 10% auto;
+    resize: none;
+    height: 88%;
+}
