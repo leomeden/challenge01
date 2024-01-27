@@ -1,54 +1,222 @@
 *{
     /*background: #F3F5FC;*/
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
 }
 
-html, body, aside {
-    height: 100%;
+html{
+  background: #FFFFFF;
+  padding: 40px 40px 0;
+  min-height: 900px;
+  background: #F3F5FC;
 }
 
+html, body{
+  height: 100%;
+}
 
 body{
-    background: #F3F5FC;
-    
+  max-width: 1440px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  /*column-gap:10px;*/
 }
 
 header{
-    width: 60%;
-    float: left;
+  flex-basis: 120px;
 }
-
-
-img{
-    clear: both;
-    width: 120px;
-    height: 48px;
-    margin-top: 40px;
-    margin-left: 40px;
-}
-
 
 main{
-    width: 60%;
-    float:left;
-    margin: 0px auto;
-    height: inherit; 
+  flex-basis: 45%;
+  /*background: pink;*/
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-bottom: 30px;
 }
 
-aside{
-    width: 35%;
-    margin: 0px auto;
-    float: left;
-       
+textarea{
+  display:block;
+  width:100%;
+  height: 90%;
+  /*background: yellow;*/
+  padding: 40px;
+  border: none;
+  resize: none;
+  background: #F3F5FC;
+  
 }
+
+main textarea{
+  color: #0A3871;
+  font-size: 32px;
+  line-height: 48px;
+  letter-spacing: 0em;
+}
+
+aside {
+  flex-basis: 34%;
+  /*background: purple;*/
+  background: #FFFFFF;
+  margin: 40px 40px 40px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-bottom: 30px;
+  border-radius: 32px;
+  
+}
+
+
 
 aside textarea{
-    background: #FFFFFF;
-    border: none;
-    border-radius: 32px;
-    width: 80%;
-    padding: 30px;
-    margin: 10% auto;
-    resize: none;
-    height: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  color: #495057;
+  line-height: 36px;
+  background: #FFFFFF;
+  border-radius: 32px;
+  background-image: url(https://cdn.glitch.global/78de743c-b2f1-40fd-87ba-ffc13eacf3db/Mu%C3%B1eco.png?v=1706313773137),
+    url(https://cdn.glitch.global/78de743c-b2f1-40fd-87ba-ffc13eacf3db/Frame%205.png?v=1706315898077);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position:
+    top 30% center, /* this positions the first image */
+    bottom 25% center; /* this positions the second image */
+}
+
+.btn-copiar{
+  width: 70%;
+  margin: 0 auto;
+  height: 60px;
+  text-align: center; 
+  font-size: 16px;
+  border-radius: 24px;
+  border: 1px solid #0A3871;
+  color: #0A3871;
+  display:none;
+}
+
+.contenedor-btn{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  
+}
+
+.btn-encriptar, .btn-desencriptar{
+  width: 49.5%;
+  height: 60px;
+  text-align: center; 
+  font-size: 16px;
+  border-radius: 24px;
+  border: 1px solid #0A3871;
+  color: #0A3871;
+}
+
+.btn-encriptar{
+  background: #0A3871;
+  color: #FFFFFF;
+}
+
+textarea:focus{
+      outline: none;  
+  }
+
+@media  (max-height: 900px){
+  
+  html{
+    height: 100%;
+    min-height: 600px;
+  }
+  
+  aside textarea{
+    background-image: url(https://cdn.glitch.global/78de743c-b2f1-40fd-87ba-ffc13eacf3db/Frame%205.png?v=1706315898077);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center; /* this positions the first image */
+  }
+}
+
+@media (min-width: 375px) and (max-width: 850px){
+  
+  html{
+    height: 100%;
+    min-height: 600px;
+    min-width: 300px;
+  }
+  
+  body {
+    display: block;
+  }
+  
+  header, main, aside {
+    width:100%;
+    
+  }
+  
+  header, aside {
+    height: auto;
+  }
+  
+  main{
+    height: 60%;
+  }
+  /*
+  header, aside{
+    block-size: max-content;
+  }
+  
+  main {
+    block-size: auto;
+  }*/
+  aside textarea{
+    background-image: url(https://cdn.glitch.global/78de743c-b2f1-40fd-87ba-ffc13eacf3db/Frame%205.png?v=1706315898077);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center; /* this positions the first image */
+  }
+  
+}
+
+@media (max-width: 375px){
+  html{
+    height: 100%;
+    min-height: 600px;
+    min-width: 300px;
+  }
+  
+  body {
+    display: block;
+    height: 100%;
+  }
+  
+  header, main, aside {
+    width:100%;
+  }
+  
+  header, aside {
+    height: auto;
+  }
+  
+  main{
+    height: 40%;
+  }
+  
+  aside textarea{
+    background-image: url(https://cdn.glitch.global/78de743c-b2f1-40fd-87ba-ffc13eacf3db/msj-tablet.png?v=1706362928444);
+    background-repeat: no-repeat;
+    background-position: center; /* this positions the first image */
+  }
+
 }

@@ -5,20 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Encriptador de texto</title>
         <link rel="icon" type="image/x-icon" href="/images/icono.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles/reset.css">
         <link rel="stylesheet" href="styles/style.css">
     </head>
-    
+     
     <body>
+        <header><img src="images/logo.png" alt="Alura LATAM"></header>
         <main>
-            <img src="images/logo.png" alt="Alura LATAM">
+            <textarea name="texto-main">Ingrese el texto aqui</textarea>
+            <div class="contenedor-btn">
+              <input class="btn btn-encriptar" type="button" value="Encriptar" />
+              <input class="btn btn-desencriptar" type="button" value="Desencriptar" />  
+            </div>
         </main>
-
         <aside>
-            <textarea name="texto-resultado">Write something here</textarea>
+            <textarea name="text-result"></textarea>
+            <input class="btn btn-copiar" type="button" value="Copiar" />  
         </aside>
         
-        
-        
     </body>
+    <script type="text/javascript" src="main.js"></script> 
 </html>
