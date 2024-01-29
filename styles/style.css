@@ -62,6 +62,11 @@ main textarea{
   letter-spacing: 0em;
 }
 
+::placeholder {
+  color: #0A3871;
+  opacity: 1;
+}
+
 aside {
   flex-basis: 34%;
   /*background: purple;*/
@@ -84,14 +89,16 @@ aside textarea{
   line-height: 36px;
   background: #FFFFFF;
   border-radius: 32px;
-  background-image: url(https://cdn.glitch.global/78de743c-b2f1-40fd-87ba-ffc13eacf3db/Mu%C3%B1eco.png?v=1706313773137),
-    url(https://cdn.glitch.global/78de743c-b2f1-40fd-87ba-ffc13eacf3db/Frame%205.png?v=1706315898077);
+  z-index: 0;
+  background-image: url("../images/muneco.png"),
+    url("../images/text-aside-full.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position:
-    top 30% center, /* this positions the first image */
-    bottom 25% center; /* this positions the second image */
+    top 30% center, 
+    bottom 10% center;
 }
+
 
 .btn-copiar{
   width: 70%;
