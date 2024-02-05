@@ -16,7 +16,7 @@ let pAside = document.getElementById("p-aside");
 btnEncriptar.addEventListener("click", encriptar)
 btnDesencriptar.addEventListener("click", ()=> console.log("Apretado botón Desencriptar"))
 btnCopiar.addEventListener("click", copiar)
-textMain.addEventListener("keyup", cambio)
+textMain.addEventListener("keydown", validateKey)
 
 /*textAside.addEventListener("input", ajustar)*/
 
@@ -44,33 +44,28 @@ async function copiar() {
   
 }
 
-function cambio(){
-
-  if (!validarLetra()){
-    //textMain.value = textMain.value.slice(0, textAside.value.length)
-    let texto = textMain.value
-    console.log("PROBLEMA")
-    textMain.value = texto.slice(0, texto.length-1)
- } else{
-  console.log("todo bien");
- }
-}
-
-
-function validarLetra() {
-  // El pattern que vamos a comprobar
-  const pattern = new RegExp('^[a-z,ñ ]+$');
-      // Si input contiene caracteres diferentes a los permitidos
-      if(!pattern.test(textMain.value)){ 
-      // Si queremos agregar letras acentuadas y/o letra ñ debemos usar
-      // codigos de Unicode (ejemplo: Ñ: \u00D1  ñ: \u00F1)
+function validateKey(e) {
+  let key = e.key;
+  console.log(e.key);
+  e.key == "Backspace" ? key = "backspace": key = e.key;
+  const pattern = new RegExp('^[a-zñ .backspace]+$');
+  
+ 
+      
+      if(!pattern.test(key)) {
+        e.preventDefault();
         return false;
-      } else {
-        // Si pasamos todas la validaciones anteriores, entonces el input es valido
-        return true;
       }
-    
+   
 }
-
+/*
+function validatePaste(el, e) {
+  var regex = /^[a-z .'-]+$/gi;
+  var key = e.clipboardData.getData('text')
+  if (!regex.test(key)) {
+    e.preventDefault();
+    return false;
+  }
+}*/
 
 
