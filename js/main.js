@@ -30,15 +30,49 @@ function encriptar(){
   textAside.style.display = "block";
   btnCopiar.style.display = "block";
 
-  textAside.value = textMain.value;
-  /*textAside.value = map([...textMain], replaceCode(x));
+  /*textAside.value = textMain.value;*/
+  textAside.value = replaceCode();
 
   function replaceCode(x) {
-    
-  }*/
-  
+    const chars = {
+      'a': 'ai',
+      'e': 'enter',
+      'i': 'imes',
+      'o': 'ober',
+      'u': 'ufat'
+    };
+
+   return textMain.value.split('').map(c => c = chars[c] || c ).join('');
+   
+  }
   
 }
+
+function desencriptar(){
+  aside.style.justifyContent = "space-between";
+  titleAside.style.display = "none";
+  pAside.style.display = "none";
+  imgAside.style.display = "none";
+  textAside.style.display = "block";
+  btnCopiar.style.display = "block";
+
+  /*textAside.value = textMain.value;*/
+  textAside.value = replaceCode();
+
+  function replaceCode(x) {
+    const chars = {
+      'ai' : 'a',
+      'enter' : 'e',
+      'imes' : 'i',
+      'ober' : 'o',
+      'ufat' : 'u' 
+    };
+
+  
+  }
+  
+}
+
 
 async function copiar() {
   
@@ -57,13 +91,11 @@ function validateKey(e) {
   e.key == "Backspace" ? key = "backspace": key = e.key;
   const pattern = new RegExp('^[a-zñ .backspace]+$');
   
- 
-      
       if(!pattern.test(key)) {
         e.preventDefault();
         return false;
       }
-   
+
 }
 
 async function validatePaste(e) {
@@ -85,7 +117,3 @@ async function validatePaste(e) {
     console.log("El texto es valido");
   }
 }
-
-
-
-
