@@ -14,7 +14,7 @@ let pAside = document.getElementById("p-aside");
 
 
 btnEncriptar.addEventListener("click", encriptar)
-btnDesencriptar.addEventListener("click", ()=> console.log("Apretado botón Desencriptar"))
+btnDesencriptar.addEventListener("click", desencriptar/*()=> console.log("Apretado botón Desencriptar")*/)
 btnCopiar.addEventListener("click", copiar)
 textMain.addEventListener("keydown", validateKey)
 textMain.addEventListener("paste", validatePaste)
@@ -67,8 +67,12 @@ function desencriptar(){
       'ober' : 'o',
       'ufat' : 'u' 
     };
-
-  
+   
+let re = new RegExp(Object.keys(chars).join("|"),"g");
+let str = textMain.value.replace(re, function(matched){
+  return chars[matched];
+});
+  return str;
   }
   
 }
@@ -89,7 +93,7 @@ function validateKey(e) {
   let key = e.key;
   /*console.log(e.key);*/
   e.key == "Backspace" ? key = "backspace": key = e.key;
-  const pattern = new RegExp('^[a-zñ .backspace]+$');
+  const pattern = new RegExp('^[a-zñ .backspace!?]+$');
   
       if(!pattern.test(key)) {
         e.preventDefault();
@@ -99,7 +103,7 @@ function validateKey(e) {
 }
 
 async function validatePaste(e) {
-  const pattern = new RegExp('^[a-zñ .]+$');
+  const pattern = new RegExp('^[a-zñ .!?]+$');
   e.preventDefault();
   let key = "";
   try {
