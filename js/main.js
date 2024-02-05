@@ -17,6 +17,7 @@ btnEncriptar.addEventListener("click", encriptar)
 btnDesencriptar.addEventListener("click", ()=> console.log("Apretado botón Desencriptar"))
 btnCopiar.addEventListener("click", copiar)
 textMain.addEventListener("keydown", validateKey)
+textMain.addEventListener("paste", validatePaste)
 
 /*textAside.addEventListener("input", ajustar)*/
 
@@ -30,6 +31,11 @@ function encriptar(){
   btnCopiar.style.display = "block";
 
   textAside.value = textMain.value;
+  /*textAside.value = map([...textMain], replaceCode(x));
+
+  function replaceCode(x) {
+    
+  }*/
   
   
 }
@@ -41,12 +47,13 @@ async function copiar() {
     } catch (error) {
       console.error(error.message);
     }
+    textMain.value = "";
   
 }
 
 function validateKey(e) {
   let key = e.key;
-  console.log(e.key);
+  /*console.log(e.key);*/
   e.key == "Backspace" ? key = "backspace": key = e.key;
   const pattern = new RegExp('^[a-zñ .backspace]+$');
   
@@ -58,14 +65,27 @@ function validateKey(e) {
       }
    
 }
-/*
-function validatePaste(el, e) {
-  var regex = /^[a-z .'-]+$/gi;
-  var key = e.clipboardData.getData('text')
-  if (!regex.test(key)) {
-    e.preventDefault();
-    return false;
+
+async function validatePaste(e) {
+  const pattern = new RegExp('^[a-zñ .]+$');
+  e.preventDefault();
+  let key = "";
+  try {
+    key = await navigator.clipboard.readText()
+  } catch (error) {
+    console.error(error.message);
   }
-}*/
+
+  console.log(key);
+  if (!pattern.test(key)) {
+    console.log("no pasa")
+    return false;
+  } else {
+    textMain.value = textMain.value + " " + key;
+    console.log("El texto es valido");
+  }
+}
+
+
 
 
