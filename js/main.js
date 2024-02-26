@@ -11,16 +11,13 @@ let imgAside = document.getElementById("img-aside");
 let titleAside = document.getElementById("h-aside");
 let pAside = document.getElementById("p-aside");
 
-
+console.log(textMain);
 
 btnEncriptar.addEventListener("click", encriptar)
 btnDesencriptar.addEventListener("click", desencriptar/*()=> console.log("Apretado botón Desencriptar")*/)
 btnCopiar.addEventListener("click", copiar)
 textMain.addEventListener("keydown", validateKey)
 textMain.addEventListener("paste", validatePaste)
-
-/*textAside.addEventListener("input", ajustar)*/
-
 
 function encriptar(){
   aside.style.justifyContent = "space-between";
@@ -30,22 +27,20 @@ function encriptar(){
   textAside.style.display = "block";
   btnCopiar.style.display = "block";
 
-  /*textAside.value = textMain.value;*/
   textAside.value = replaceCode();
+}
 
-  function replaceCode(x) {
-    const chars = {
-      'a': 'ai',
-      'e': 'enter',
-      'i': 'imes',
-      'o': 'ober',
-      'u': 'ufat'
-    };
+function replaceCode(x) {
+  const chars = {
+    'a': 'ai',
+    'e': 'enter',
+    'i': 'imes',
+    'o': 'ober',
+    'u': 'ufat'
+  };
 
-   return textMain.value.split('').map(c => c = chars[c] || c ).join('');
-   
-  }
-  
+ return textMain.value.split('').map(c => c = chars[c] || c ).join('');
+ 
 }
 
 function desencriptar(){
@@ -56,7 +51,6 @@ function desencriptar(){
   textAside.style.display = "block";
   btnCopiar.style.display = "block";
 
-  /*textAside.value = textMain.value;*/
   textAside.value = replaceCode();
 
   function replaceCode(x) {
@@ -79,14 +73,12 @@ let str = textMain.value.replace(re, function(matched){
 
 
 async function copiar() {
-  
     try {
       await navigator.clipboard.writeText(textAside.value);
     } catch (error) {
       console.error(error.message);
     }
     textMain.value = "";
-  
 }
 
 function validateKey(e) {
@@ -99,7 +91,6 @@ function validateKey(e) {
         e.preventDefault();
         return false;
       }
-
 }
 
 async function validatePaste(e) {
@@ -114,10 +105,9 @@ async function validatePaste(e) {
 
   console.log(key);
   if (!pattern.test(key)) {
-    console.log("no pasa")
     return false;
   } else {
     textMain.value = textMain.value + " " + key;
-    console.log("El texto es valido");
   }
 }
+
